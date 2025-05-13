@@ -52,3 +52,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Obsidian keymaps
+vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>', { desc = 'New Obsidian Note' })
+vim.keymap.set('n', '<leader>ot', ':ObsidianToday<CR>', { desc = "Open Today's Note" })
+-- Open Obsidian notes directory
+vim.keymap.set('n', '<leader>oo', function()
+  -- Expand the home directory symbol (~) to the actual path
+  local notes_dir = vim.fn.expand '~/notes'
+
+  -- Change the current working directory
+  vim.cmd('cd ' .. notes_dir)
+
+  -- Optional: Show a message confirming the directory change
+  vim.notify('Changed directory to ' .. notes_dir, vim.log.levels.INFO)
+end, { desc = 'Open Obsidian Notes Directory' })
+
+-- Remove leading whitespace from selected lines
+vim.keymap.set('v', '<leader>dl', ':s/^\\s*//g<CR>', { desc = 'Delete leading whitespace' })

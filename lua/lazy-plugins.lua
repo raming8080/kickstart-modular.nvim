@@ -29,7 +29,11 @@ require('lazy').setup({
 
   require 'kickstart/plugins/telescope',
 
+  require 'kickstart/plugins/obsidian',
+
   require 'kickstart/plugins/lspconfig',
+
+  require 'kickstart/plugins/noice',
 
   require 'kickstart/plugins/conform',
 
